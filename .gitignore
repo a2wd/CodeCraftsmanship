@@ -298,3 +298,8 @@ __pycache__/
 # should be stored in the .pubxml.user file.
 
 # End of https://www.gitignore.io/api/visualstudio
+/Week1.FizzBuzz.Tests/Week1.FizzBuzz.Tests.v3.ncrunchproject
+/Week1.FizzBuzz/Week1.FizzBuzz.v3.ncrunchproject
+/Week1.StringCalculator.Tests/Week1.StringCalculator.Tests.v3.ncrunchproject
+*.ncrunchsolution
+*.ncrunchproject
