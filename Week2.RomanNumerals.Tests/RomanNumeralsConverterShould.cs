@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-
-namespace Week2.RomanNumerals.Tests
+﻿namespace Week2.RomanNumerals.Tests
 {
+    using NUnit.Framework;
+    using RomanNumerals;
+
     [TestFixture]
     public class RomanNumeralsConverterShould
     {
@@ -35,45 +34,26 @@ namespace Week2.RomanNumerals.Tests
         [TestCase(18, "XVIII")]
         [TestCase(19, "XIX")]
         [TestCase(20, "XX")]
+        [TestCase(30, "XXX")]
+        [TestCase(35, "XXXV")]
+        [TestCase(39, "XXXIX")]
         [TestCase(40, "XL")]
+        [TestCase(44, "XLIV")]
+        [TestCase(50, "L")]
+        [TestCase(51, "LI")]
+        [TestCase(90, "XC")]
+        [TestCase(100, "C")]
+        [TestCase(500, "D")]
+        [TestCase(1000, "M")]
+        [TestCase(846, "DCCCXLVI")]
+        [TestCase(999, "CMXCIX")]
+        [TestCase(1999, "MCMXCIX")]
+        [TestCase(2008, "MMVIII")]
         public void ReturnARomanNumeralGivenAnArabicNumeral(int arabicNumeral, string expectedOutput)
         {
             var result = new RomanNumeralsConverter().Convert(arabicNumeral);
 
             Assert.That(result, Is.EqualTo(expectedOutput));
-        }
-    }
-
-    public class RomanNumeralsConverter
-    {
-        private static readonly Dictionary<int, string> ArabicNumeralsToRomanNumerals = new Dictionary<int, string>()
-        {
-            {1, "I" },
-            {4, "IV" },
-            {5, "V" },
-            {9, "IX" },
-            {10, "X" },
-            {40, "XL" }
-        };
-
-        public string Convert(int arabicNumber)
-        {
-            if (ArabicNumeralsToRomanNumerals.ContainsKey(arabicNumber))
-            {
-                return ArabicNumeralsToRomanNumerals[arabicNumber];
-            }
-
-            if (arabicNumber > 10)
-            {
-                return ArabicNumeralsToRomanNumerals[10] + Convert(arabicNumber - 10);
-            }
-
-            if (arabicNumber > 5)
-            {
-               return ArabicNumeralsToRomanNumerals[5] + Convert(arabicNumber - 5);
-            }
-            
-            return ArabicNumeralsToRomanNumerals[1] + Convert(arabicNumber - 1);
         }
     }
 }
