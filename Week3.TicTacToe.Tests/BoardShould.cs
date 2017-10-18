@@ -20,14 +20,14 @@
         {
             var board = new Board();
 
-            for (int cellIndex = 0; cellIndex < 9; cellIndex++)
+            for (int columnIndex = 1; columnIndex <= 3; columnIndex++)
             {
-                var column = cellIndex % 3;
-                var row = column / 3;
+                for (int rowIndex = 1; rowIndex <= 3; rowIndex++)
+                {
+                    var cellIsEmpty = board.IsCellEmpty(rowIndex, columnIndex);
 
-                var cellIsEmpty = board.IsCellEmpty(row, column);
-
-                Assert.That(cellIsEmpty, Is.True);
+                    Assert.That(cellIsEmpty, Is.True);
+                }
             }
         }
 
@@ -41,12 +41,52 @@
             Assert.That(board.IsCellEmpty(1,2), Is.False);
         }
 
-        [Test]
-        public void ThrowAnErrorWhenAnInvalidCellIsRead()
+        [TestCase(-2, -4)]
+        [TestCase(5, 5)]
+        public void ThrowAnErrorWhenAnInvalidCellIsRead(int rowIndex, int columnIndex)
         {
             var board = new Board();
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => board.IsCellEmpty(5, 5));
+            Assert.Throws<ArgumentOutOfRangeException>(() => board.IsCellEmpty(rowIndex, columnIndex));
+        }
+
+        [Test]
+        public void CorrectlyRememberTheValueWhichIsZeroSetInACell()
+        {
+            var board = new Board();
+
+            board.SetCellToO(1, 1);
+
+            Assert.That(board.IsCellSetToO(1, 1), Is.True);
+        }
+
+        [Test]
+        public void CorrectlyRememberTheValueSetInACell()
+        {
+            var board =  new Board();
+            board.SetCellToX(2, 3);
+
+            Assert.That(board.IsCellSetToX(2, 3),Is.True);
+        }
+
+        [Test]
+        public void NotAllowTheValueOfACellToBeSetTwice()
+        {
+            var board = new Board();
+
+            board.SetCellToX(1, 1);
+
+            Assert.Throws<InvalidOperationException>(() => board.SetCellToO(1, 1));
+        }
+
+        [Test]
+        public void NotAllowConsecutiveTurnsByPlayerX()
+        {
+            var board = new Board();
+            
+            board.SetCellToX(1,1);
+
+            Assert.Throws<InvalidOperationException>(() => board.SetCellToX(1, 2));
         }
     }
 }
