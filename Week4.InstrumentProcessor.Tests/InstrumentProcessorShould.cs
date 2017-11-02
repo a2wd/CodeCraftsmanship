@@ -5,6 +5,7 @@
     using Interfaces;
     using Moq;
     using NUnit.Framework;
+    using Stubs;
 
     [TestFixture]
     public class InstrumentProcessorShould
@@ -18,7 +19,7 @@
             var instrumentProcessor = new InstrumentProcessor(taskDispatcherMock.Object, instrumentMock.Object);
             instrumentProcessor.Process();
 
-            taskDispatcherMock.Verify(x=>x.GetTask(), Times.Once());
+            taskDispatcherMock.Verify(x => x.GetTask(), Times.Once());
         }
 
         [Test]
@@ -41,13 +42,39 @@
             Mock<ITaskDispatcher> taskDispatcherMock = new Mock<ITaskDispatcher>();
             Mock<IInstrument> instrumentMock = new Mock<IInstrument>();
 
-            taskDispatcherMock.Setup(x => x.GetTask()).Returns("");
+            taskDispatcherMock.Setup(x => x.GetTask()).Throws<Exception>();
 
             var instrumentProcessor = new InstrumentProcessor(taskDispatcherMock.Object, instrumentMock.Object);
 
-            Assert.Throws<Exception>(()=> instrumentProcessor.Process());
+            Assert.Throws<Exception>(() => instrumentProcessor.Process());
+        }
+
+        [Test]
+        public void CallTheInstrumentWithTheCorrectTask()
+        {
+            var taskDispatcher = new TaskDispatcherStub();
+
+            var instrumentMock = new Mock<IInstrument>();
+
+            var instrumentProcessor = new InstrumentProcessor(taskDispatcher, instrumentMock.Object);
+            instrumentProcessor.Process();
+
+            instrumentMock.Verify(x => x.Execute("stub test"));
+        }
+
+        [Test]
+        public void CallTheTaskDispatcherFinishedTaskWithTheCorrectTask()
+        {
+            var testTask = "stub test";
+            var taskDispatcherMock = new Mock<ITaskDispatcher>();
+            taskDispatcherMock.Setup(x => x.GetTask()).Returns(testTask);
+
+            var instrumentStub = new InstrumentStub();
+
+            var instrumentProcessor = new InstrumentProcessor(taskDispatcherMock.Object, instrumentStub);
+            instrumentProcessor.Process();
+
+            taskDispatcherMock.Verify(x => x.FinishedTask(testTask));
         }
     }
-    
-
 }

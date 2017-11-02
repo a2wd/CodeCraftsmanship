@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="InstrumentProcessorShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stubs\InstrumentStub.cs" />
+    <Compile Include="Stubs\TaskDispatcherStub.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Week4.InstrumentProcessor\Week4.InstrumentProcessor.csproj">
@@ -71,6 +73,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
