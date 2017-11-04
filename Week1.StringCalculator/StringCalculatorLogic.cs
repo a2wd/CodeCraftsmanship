@@ -14,7 +14,7 @@
                 return 0;
             }
 
-            var outputNumbersAsString = numbers.Split(',');
+            var outputNumbersAsString = numbers.Replace("\n", "").Split(',');
 
             int[] outputNumbers = new int[outputNumbersAsString.Length];
 
