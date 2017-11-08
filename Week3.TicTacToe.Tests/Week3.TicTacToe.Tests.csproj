@@ -54,13 +54,13 @@
     <Compile Include="BoardShould.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Week3.TicTacToe\Week3.TicTacToe.csproj">
       <Project>{6a0fdf95-c0d5-4462-a8cc-30289b1989ce}</Project>
       <Name>Week3.TicTacToe</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
