@@ -6,6 +6,8 @@
     {
         private readonly int[,] _cells;
 
+        private int _lastMove;
+
         public Board()
         {
             _cells = new int[BoardDimensions.MaximumRowNumber, BoardDimensions.MaximumColumnNumber];
@@ -23,9 +25,11 @@
 
         public void SetCellToX(int row, int column)
         {
-            if (IsCellEmpty(row, column))
+            if (IsCellEmpty(row, column) && _lastMove != CellValues.X)
             {
                 SetCellValueWith1IndexedRowAndColumnValues(row, column, CellValues.X);
+                _lastMove = CellValues.X;
+
                 return;
             }
 
