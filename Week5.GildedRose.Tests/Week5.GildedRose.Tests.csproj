@@ -78,8 +78,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AgedBrieShould.cs" />
     <Compile Include="ApprovalTest.cs" />
-    <Compile Include="GildedRoseTest.cs" />
+    <Compile Include="GildedRoseShould.cs" />
+    <Compile Include="InventoryItemShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

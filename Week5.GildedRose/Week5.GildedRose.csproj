@@ -46,10 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IItemOperations.cs" />
+    <Compile Include="Interfaces\IItemOperations.cs" />
     <Compile Include="GildedRose.cs" />
-    <Compile Include="InventoryItem.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Inventory\AgedBrie.cs" />
+    <Compile Include="Inventory\InventoryItem.cs" />
+    <Compile Include="Item\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

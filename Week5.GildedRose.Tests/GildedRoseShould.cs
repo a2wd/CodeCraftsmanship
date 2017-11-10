@@ -14,7 +14,5 @@
             app.UpdateQuality();
             Assert.AreEqual("foo", Items[0].Name);
         }
-
-
     }
 }
