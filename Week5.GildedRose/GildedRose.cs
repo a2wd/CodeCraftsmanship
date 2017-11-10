@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace csharp
+﻿namespace Week5.GildedRose
 {
+    using System.Collections.Generic;
+
     public class GildedRose
     {
         private const string AgedBrie = "Aged Brie";

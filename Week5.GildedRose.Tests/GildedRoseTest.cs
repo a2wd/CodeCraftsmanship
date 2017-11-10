@@ -1,18 +1,20 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
-
-namespace csharp
+﻿namespace Week5.GildedRose
 {
+    using System.Collections.Generic;
+    using NUnit.Framework;
+
     [TestFixture]
-    public class GildedRoseTest
+    public class GildedRoseShould
     {
         [Test]
-        public void foo()
+        public void PersistItemAfterUpdateQualityOperation()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("foo", Items[0].Name);
         }
+
+
     }
 }

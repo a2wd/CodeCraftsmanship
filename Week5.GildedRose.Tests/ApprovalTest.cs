@@ -1,12 +1,12 @@
-﻿using ApprovalTests;
-using ApprovalTests.Reporters;
-using NUnit.Framework;
-using System;
-using System.IO;
-using System.Text;
-
-namespace csharp
+﻿namespace Week5.GildedRose
 {
+    using System;
+    using System.IO;
+    using System.Text;
+    using ApprovalTests;
+    using ApprovalTests.Reporters;
+    using NUnit.Framework;
+
     [TestFixture]
     [UseReporter(typeof(NUnitReporter))]
     public class ApprovalTest

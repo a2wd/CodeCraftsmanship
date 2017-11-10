@@ -1,4 +1,4 @@
-﻿namespace csharp
+﻿namespace Week5.GildedRose
 {
     public class Item
     {

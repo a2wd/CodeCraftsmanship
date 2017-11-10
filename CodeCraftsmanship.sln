@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week5", "Week5", "{D8A5B28C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5.GildedRose", "Week5.GildedRose\Week5.GildedRose.csproj", "{176C0214-9136-4079-8DAB-11D7420C3881}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5.GildedRose.Tests", "Week5.GildedRose.Tests\Week5.GildedRose.Tests.csproj", "{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{176C0214-9136-4079-8DAB-11D7420C3881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{176C0214-9136-4079-8DAB-11D7420C3881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{176C0214-9136-4079-8DAB-11D7420C3881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +112,7 @@ Global
 		{AA1B7785-C8A4-4F16-9A23-02A6C6075B89} = {754E6244-48E4-40A5-B332-D2C83EDA04F6}
 		{A693FA62-5E3E-4109-A75C-7980D28BFE76} = {754E6244-48E4-40A5-B332-D2C83EDA04F6}
 		{176C0214-9136-4079-8DAB-11D7420C3881} = {D8A5B28C-1C5F-43D8-BA14-23F415C4A58F}
+		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B} = {D8A5B28C-1C5F-43D8-BA14-23F415C4A58F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20F6A488-E97D-4CB6-938A-5D4CE66AA7EF}
