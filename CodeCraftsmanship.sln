@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week1.FizzBuzz.Tests", "Week1.FizzBuzz.Tests\Week1.FizzBuzz.Tests.csproj", "{4F2CFED6-15EB-47EA-BF14-0E19EF529F5E}"
 EndProject
@@ -41,6 +41,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5.GildedRose", "Week5.GildedRose\Week5.GildedRose.csproj", "{176C0214-9136-4079-8DAB-11D7420C3881}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5.GildedRose.Tests", "Week5.GildedRose.Tests\Week5.GildedRose.Tests.csproj", "{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week6", "Week6", "{13D3040A-419E-43D5-9730-E59E92F01102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week6.MarsRover", "Week6.MarsRover\Week6.MarsRover.csproj", "{48246520-95C8-47EB-8127-66C3BD257A7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week6.MarsRover.Tests", "Week6.MarsRover.Tests\Week6.MarsRover.Tests.csproj", "{E5BAC1E1-685A-46E4-9C3A-2E672A44FFA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +102,14 @@ Global
 		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48246520-95C8-47EB-8127-66C3BD257A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48246520-95C8-47EB-8127-66C3BD257A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48246520-95C8-47EB-8127-66C3BD257A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48246520-95C8-47EB-8127-66C3BD257A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5BAC1E1-685A-46E4-9C3A-2E672A44FFA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5BAC1E1-685A-46E4-9C3A-2E672A44FFA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5BAC1E1-685A-46E4-9C3A-2E672A44FFA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5BAC1E1-685A-46E4-9C3A-2E672A44FFA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +127,8 @@ Global
 		{A693FA62-5E3E-4109-A75C-7980D28BFE76} = {754E6244-48E4-40A5-B332-D2C83EDA04F6}
 		{176C0214-9136-4079-8DAB-11D7420C3881} = {D8A5B28C-1C5F-43D8-BA14-23F415C4A58F}
 		{58DB5BAD-8F79-4E16-9B28-B85C8AE7CE6B} = {D8A5B28C-1C5F-43D8-BA14-23F415C4A58F}
+		{48246520-95C8-47EB-8127-66C3BD257A7C} = {13D3040A-419E-43D5-9730-E59E92F01102}
+		{E5BAC1E1-685A-46E4-9C3A-2E672A44FFA4} = {13D3040A-419E-43D5-9730-E59E92F01102}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20F6A488-E97D-4CB6-938A-5D4CE66AA7EF}

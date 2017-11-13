@@ -8,9 +8,9 @@
         private const string BackstagePasses = "Backstage passes to a TAFKAL80ETC concert";
         private const string SulfurasHandOfRagnaros = "Sulfuras, Hand of Ragnaros";
 
-        IList<Item> Items;
+        IList<Item.Item> Items;
 
-        public GildedRose(IList<Item> Items)
+        public GildedRose(IList<Item.Item> Items)
         {
             this.Items = Items;
         }

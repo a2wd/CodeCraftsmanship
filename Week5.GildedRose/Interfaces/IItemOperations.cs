@@ -1,4 +1,4 @@
-﻿namespace Week5.GildedRose
+﻿namespace Week5.GildedRose.Interfaces
 {
     public interface IItemOperations
     {

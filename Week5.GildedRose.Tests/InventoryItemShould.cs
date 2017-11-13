@@ -1,4 +1,6 @@
-﻿namespace Week5.GildedRose.Tests
+﻿using Week5.GildedRose.Inventory;
+
+namespace Week5.GildedRose.Tests
 {
     using NUnit.Framework;
 

@@ -1,6 +1,8 @@
-﻿namespace Week5.GildedRose
+﻿namespace Week5.GildedRose.Inventory
 {
-    public class InventoryItem: Item, IItemOperations
+    using Week5.GildedRose.Interfaces;
+
+    public class InventoryItem: Item.Item, IItemOperations
     {
 
         public InventoryItem(int quality, int sellIn)
