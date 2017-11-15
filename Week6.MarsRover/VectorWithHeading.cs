@@ -1,7 +1,7 @@
 ﻿namespace Week6.MarsRover
 {
     using System;
-    public class VectorWithHeading : IComparable<VectorWithHeading>
+    public class VectorWithHeading : IEquatable<VectorWithHeading>
     {
         private readonly int _xPosition;
         private readonly int _yPosition;
@@ -30,17 +30,23 @@
         }
 
 
-        public int CompareTo(VectorWithHeading other)
+        public bool Equals(VectorWithHeading otherObject)
         {
-            if (ReferenceEquals(this, other)) return 0;
-            if (ReferenceEquals(null, other)) return 1;
-            var xPositionComparison = _xPosition.CompareTo(other._xPosition);
-            if (xPositionComparison != 0) return xPositionComparison;
-            var yPositionComparison = _yPosition.CompareTo(other._yPosition);
-            if (yPositionComparison != 0) return yPositionComparison;
-            return _heading.CompareTo(other._heading);
+            var otherVectorWithHeading = (VectorWithHeading) otherObject;
+
+            if (otherVectorWithHeading == null)
+            {
+                return false;
+            }
+
+            return (_xPosition == otherVectorWithHeading._xPosition &&
+                    _yPosition == otherVectorWithHeading._yPosition && 
+                            _heading == otherVectorWithHeading._heading);
         }
 
-    
+        public override int GetHashCode()
+        {
+            return this._xPosition.GetHashCode() ^ this._yPosition.GetHashCode() ^ ((int)this._heading).GetHashCode();
+        }
     }
 }
