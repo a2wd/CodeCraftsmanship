@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Heading.cs" />
     <Compile Include="MarsRover.cs" />
+    <Compile Include="Plateau.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoverOutsideOfPlateauException.cs" />
+    <Compile Include="VectorWithHeading.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
