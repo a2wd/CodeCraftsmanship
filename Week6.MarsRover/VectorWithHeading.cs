@@ -32,21 +32,16 @@
 
         public bool Equals(VectorWithHeading otherObject)
         {
-            var otherVectorWithHeading = (VectorWithHeading) otherObject;
+            var otherVectorWithHeading = otherObject;
 
             if (otherVectorWithHeading == null)
             {
                 return false;
             }
 
-            return (_xPosition == otherVectorWithHeading._xPosition &&
-                    _yPosition == otherVectorWithHeading._yPosition && 
-                            _heading == otherVectorWithHeading._heading);
-        }
-
-        public override int GetHashCode()
-        {
-            return this._xPosition.GetHashCode() ^ this._yPosition.GetHashCode() ^ ((int)this._heading).GetHashCode();
+            return _xPosition == otherVectorWithHeading.GetXPosition() &&
+                   _yPosition == otherVectorWithHeading.GetYPosition() && 
+                   _heading == otherVectorWithHeading.GetHeading();
         }
     }
 }
