@@ -2,9 +2,9 @@
 {
     public enum Heading
     {
-        North,
-        East,
-        South,
-        West
+        North = 4,
+        East = 3,
+        South = 2,
+        West = 1
     }
 }

@@ -17,7 +17,7 @@ namespace Week6.MarsRover.Tests
             var rover = new MarsRover(initialVectorWithHeading, new Plateau(1, 2));
 
             var roverPosition = rover.GetVectorWithHeading();
-            Assert.That(roverPosition, Is.EqualTo(expectedVectorWithHeading));
+            Assert.That(roverPosition, Is.EqualTo(expectedVectorWithHeading).Using(new VectorWithHeadingComparer()));
         }
 
         [Test]

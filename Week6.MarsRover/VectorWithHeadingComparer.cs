@@ -1,13 +1,36 @@
 ﻿namespace Week6.MarsRover
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-
-    public class VectorWithHeadingComparer
+    public class VectorWithHeadingComparer : IComparer<VectorWithHeading>
     {
+        public int Compare(VectorWithHeading x, VectorWithHeading y)
+        {
+            if (x == null)
+            {
+                return -1;
+            }
+
+            if (y == null)
+            {
+                return 1;
+            }
+
+            if (x.GetXPosition() < y.GetXPosition() ||
+                x.GetYPosition() < y.GetYPosition() ||
+                x.GetHeading() < y.GetHeading())
+            {
+                return -1;
+            }
+
+            if (x.GetXPosition() > y.GetXPosition() ||
+                x.GetYPosition() > y.GetYPosition() ||
+                x.GetHeading() > y.GetHeading())
+            {
+                return 1;
+            }
+
+            return 0;
+        }
     }
 }

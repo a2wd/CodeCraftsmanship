@@ -1,7 +1,7 @@
 ﻿namespace Week6.MarsRover
 {
     using System;
-    public class VectorWithHeading : IEquatable<VectorWithHeading>
+    public class VectorWithHeading
     {
         private readonly int _xPosition;
         private readonly int _yPosition;
@@ -27,21 +27,6 @@
         public Heading GetHeading()
         {
             return _heading;
-        }
-
-
-        public bool Equals(VectorWithHeading otherObject)
-        {
-            var otherVectorWithHeading = otherObject;
-
-            if (otherVectorWithHeading == null)
-            {
-                return false;
-            }
-
-            return _xPosition == otherVectorWithHeading.GetXPosition() &&
-                   _yPosition == otherVectorWithHeading.GetYPosition() && 
-                   _heading == otherVectorWithHeading.GetHeading();
         }
     }
 }
