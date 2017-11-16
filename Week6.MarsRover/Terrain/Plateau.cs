@@ -1,4 +1,4 @@
-﻿namespace Week6.MarsRover
+﻿namespace Week6.MarsRover.Terrain
 {
     public class Plateau
     {

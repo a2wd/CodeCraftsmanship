@@ -1,6 +1,7 @@
-﻿namespace Week6.MarsRover
+﻿namespace Week6.MarsRover.Terrain
 {
     using System;
+
     public class VectorWithHeading : IEquatable<VectorWithHeading>
     {
         private readonly int _xPosition;

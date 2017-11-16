@@ -1,9 +1,8 @@
-﻿using NUnit.Framework;
-
-namespace Week6.MarsRover.Tests
+﻿namespace Week6.MarsRover.Tests
 {
-    using System;
-    using System.Runtime.InteropServices;
+    using Exceptions;
+    using NUnit.Framework;
+    using Terrain;
 
     [TestFixture]
     public class MarsRoverShould

@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Week6.MarsRover
+﻿namespace Week6.MarsRover
 {
+    using Exceptions;
+    using Terrain;
+
     public class MarsRover
     {
         private readonly VectorWithHeading _currentVectorWithHeading;
