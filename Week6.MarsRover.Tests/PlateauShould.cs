@@ -12,7 +12,9 @@
             var firstPlateau = new Plateau(1, 1);
             var secondPlateau = new Plateau(1, 1);
 
-            Assert.That(firstPlateau, Is.EqualTo(secondPlateau));
+            var comparison = firstPlateau.Equals(secondPlateau);
+
+            Assert.That(comparison, Is.True);
         }
 
         [Test]
@@ -21,7 +23,9 @@
             var firstPlateau = new Plateau(1, 1);
             var secondPlateau = new Plateau(2, 2);
 
-            Assert.That(firstPlateau, Is.Not.EqualTo(secondPlateau));
+            var comparison = firstPlateau.Equals(secondPlateau);
+
+            Assert.That(comparison, Is.False);
         }
 
         [Test]
@@ -29,7 +33,9 @@
         {
             var firstPlateau = new Plateau(1, 1);
 
-            Assert.That(firstPlateau, Is.EqualTo(firstPlateau));
+            var comparison = firstPlateau.Equals(firstPlateau);
+
+            Assert.That(comparison, Is.True);
         }
 
         [Test]
@@ -37,7 +43,9 @@
         {
             var firstPlateau = new Plateau(1, 1);
 
-            Assert.That(firstPlateau, Is.Not.EqualTo(null));
+            var comparison = firstPlateau.Equals(null);
+
+            Assert.That(comparison, Is.False);
         }
     }
 }
