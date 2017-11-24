@@ -24,9 +24,18 @@
 
         public bool Equals(Plateau other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return _xPosition == other._xPosition && _yPosition == other._yPosition;
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            return _xPosition == other._xPosition &&
+                   _yPosition == other._yPosition;
         }
     }
 }

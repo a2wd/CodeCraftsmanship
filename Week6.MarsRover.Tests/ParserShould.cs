@@ -1,12 +1,7 @@
 ﻿namespace Week6.MarsRover.Tests
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using NUnit.Framework;
-    using NUnit.Framework.Internal;
     using Parser;
     using Terrain;
 
