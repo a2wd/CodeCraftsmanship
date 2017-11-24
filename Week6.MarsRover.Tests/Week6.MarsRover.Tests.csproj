@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MarsRoverShould.cs" />
+    <Compile Include="ParserShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VectorWithHeadingShould.cs" />
   </ItemGroup>

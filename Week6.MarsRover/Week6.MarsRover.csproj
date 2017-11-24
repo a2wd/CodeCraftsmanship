@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidHeadingException.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\ParserOutput.cs" />
     <Compile Include="Terrain\Heading.cs" />
     <Compile Include="MarsRover.cs" />
     <Compile Include="Terrain\Plateau.cs" />
@@ -47,5 +50,6 @@
     <Compile Include="Exceptions\RoverOutsideOfPlateauException.cs" />
     <Compile Include="Terrain\VectorWithHeading.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
