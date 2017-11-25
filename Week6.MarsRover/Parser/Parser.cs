@@ -9,45 +9,67 @@
         private const char InputSeparator = ' ';
         private const char LineSeparator = '\n';
 
+        private const int PlateauLineIndex = 0;
+        private const int InitialVectorWithHeadingLineIndex = 1;
+
         public ParserOutput Parse(string input)
         {
             Plateau plateau;
-            VectorWithHeading vectorWithHeading;
+            VectorWithHeading initialVectorWithHeading;
 
             var lines = input.Split(LineSeparator);
 
+            plateau = ParsePlateau(lines[PlateauLineIndex]);
+
+            initialVectorWithHeading = ParseVectorWithHeading(lines[InitialVectorWithHeadingLineIndex]);
+
+            return new ParserOutput(plateau, initialVectorWithHeading);
+        }
+
+        private VectorWithHeading ParseVectorWithHeading(string inputLine)
+        {
+            var vectorWithHeadingInput = inputLine.Split(InputSeparator);
+
+            if (vectorWithHeadingInput.Length != 3)
+            {
+                throw new ArgumentException();
+            }
+
+            int xPosition;
+            int yPosition;
+
             try
             {
-                plateau = ParsePlateau(lines);
-
-                vectorWithHeading = ParseVectorWithHeading(lines);
+                xPosition = int.Parse(vectorWithHeadingInput[0]);
+                yPosition = int.Parse(vectorWithHeadingInput[1]);
             }
             catch
             {
                 throw new ArgumentException();
             }
 
-            return new ParserOutput(plateau, vectorWithHeading);
+            var heading = ParseHeading(vectorWithHeadingInput[2]);
+
+            return new VectorWithHeading(xPosition, yPosition, heading);
         }
 
-        private VectorWithHeading ParseVectorWithHeading(string[] lines)
+        private Plateau ParsePlateau(string inputLine)
         {
-            var vectorWithHeadingInput = lines[1].Split(InputSeparator);
-
-            return new VectorWithHeading(int.Parse(vectorWithHeadingInput[0]),
-                int.Parse(vectorWithHeadingInput[1]), ParseHeading(vectorWithHeadingInput[2]));
-        }
-
-        private Plateau ParsePlateau(string[] lines)
-        {
-            var plateauInput = lines[0].Split(InputSeparator);
+            var plateauInput = inputLine.Split(InputSeparator);
 
             if (plateauInput.Length != 2)
             {
                 throw new ArgumentException();
             }
 
-            return new Plateau(int.Parse(plateauInput[0]), int.Parse(plateauInput[1]));
+            try
+            {
+                return new Plateau(int.Parse(plateauInput[0]), int.Parse(plateauInput[1]));
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
 
         private Heading ParseHeading(string headingInput)

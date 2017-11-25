@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\InvalidHeadingException.cs" />
+    <Compile Include="Movement\Movement.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="Parser\ParserOutput.cs" />
     <Compile Include="Terrain\Heading.cs" />
