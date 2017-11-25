@@ -44,5 +44,10 @@
                    _yPosition == otherVectorWithHeading.GetYPosition() && 
                    _heading == otherVectorWithHeading.GetHeading();
         }
+
+        public override string ToString()
+        {
+            return $"{_xPosition} {_yPosition} {HeadingOutput.HeadingToString(_heading)}";
+        }
     }
 }

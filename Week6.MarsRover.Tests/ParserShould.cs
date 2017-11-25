@@ -88,9 +88,10 @@
         [TestCase("1 1\n1 1 N\nFOO")]
         [TestCase("1 1\n1 1 N\nL1")]
         [TestCase("1 1\n1 1 N\nL ")]
-        [TestCase("1 1\n1 1 N\nl ")]
-        [TestCase("1 1\n1 1 N\nr ")]
-        [TestCase("1 1\n1 1 N\nm ")]
+        [TestCase("1 1\n1 1 N\n L")]
+        [TestCase("1 1\n1 1 N\nl")]
+        [TestCase("1 1\n1 1 N\nr")]
+        [TestCase("1 1\n1 1 N\nm")]
         public void ThrowAnInvalidMovementExceptionWhenPassedAnInvalidRepresentationOfAMovement(string input)
         {
             Assert.Throws<InvalidMovementException>(() => new Parser().Parse(input));
