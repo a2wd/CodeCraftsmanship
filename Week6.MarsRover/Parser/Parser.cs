@@ -1,8 +1,11 @@
 ﻿namespace Week6.MarsRover.Parser
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Exceptions;
     using Terrain;
+    using Movement;
 
     public class Parser
     {
@@ -11,19 +14,37 @@
 
         private const int PlateauLineIndex = 0;
         private const int InitialVectorWithHeadingLineIndex = 1;
+        private const int MovementsLineIndex = 2;
 
         public ParserOutput Parse(string input)
         {
-            Plateau plateau;
-            VectorWithHeading initialVectorWithHeading;
-
             var lines = input.Split(LineSeparator);
 
-            plateau = ParsePlateau(lines[PlateauLineIndex]);
+            Plateau plateau = ParsePlateau(lines[PlateauLineIndex]);
+            VectorWithHeading initialVectorWithHeading = ParseVectorWithHeading(lines[InitialVectorWithHeadingLineIndex]);
+            Movement[] movements = ParseMovements(lines[MovementsLineIndex]);
 
-            initialVectorWithHeading = ParseVectorWithHeading(lines[InitialVectorWithHeadingLineIndex]);
+            return new ParserOutput(plateau, initialVectorWithHeading, movements);
+        }
 
-            return new ParserOutput(plateau, initialVectorWithHeading);
+        private Movement[] ParseMovements(string inputLine)
+        {
+            return inputLine.Select(ParseMovement).ToArray();
+        }
+
+        private Movement ParseMovement(char input)
+        {
+            switch (input)
+            {
+                case 'L':
+                    return Movement.TurnLeft;
+                case 'R':
+                    return Movement.TurnRight;
+                case 'M':
+                    return Movement.MoveForward;
+                default:
+                    throw new InvalidMovementException(input.ToString());
+            }
         }
 
         private VectorWithHeading ParseVectorWithHeading(string inputLine)
