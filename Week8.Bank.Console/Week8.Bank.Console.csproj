@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Week8.Bank\Week8.Bank.csproj">
+      <Project>{e8c3ce82-6115-4d1d-997c-7338fe1584a4}</Project>
+      <Name>Week8.Bank</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

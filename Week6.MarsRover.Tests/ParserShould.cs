@@ -66,14 +66,5 @@
         {
             Assert.Throws<InvalidHeadingException>(() => new Parser().Parse(input));
         }
-
-        [TestCase("1 1\n1 1 N\nLMRM", new[]
-            {Movement.TurnLeft, Movement.MoveForward, Movement.TurnRight, Movement.MoveForward})]
-        public void CorrectlyParseASequenceOfMovements(string input, Movement[] expectedMovementSequence)
-        {
-            var result = new Parser().Parse(input);
-
-            Assert.That(result.GetMovements(), Is.EquivalentTo(expectedMovementSequence));
-        }
     }
 }
