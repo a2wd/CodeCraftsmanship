@@ -4,6 +4,7 @@ using TechTalk.SpecFlow;
 namespace Week8.Bank.Console.Tests.Steps
 {
     using System.Text;
+    using Atm;
     using NUnit.Framework;
 
     [Binding]
@@ -11,31 +12,31 @@ namespace Week8.Bank.Console.Tests.Steps
     {
         private string atmOutput;
 
-        private Atm _atm;
+        private IAtm _atm;
 
         public AtmSteps()
         {
            
             var account = new Account();
-            _atm = new Atm(account);
+            _atm = new Bank.Atm(account);
         }
 
         [Given(@"a client makes a deposit of (.*) on (.*)")]
         public void GivenAClientMakesADepositOfOn(decimal depositAmount, string transactionDate)
         {
-            atm.Deposit(depositAmount, transactionDate);
+            _atm.Deposit(depositAmount, transactionDate);
         }
         
         [Given(@"a client makes a withdrawal of (.*) on (.*)")]
         public void GivenAClientMakesAWithdrawalOfOn(decimal withdrawalAmount, string transactionDate)
         {
-            atm.Withdraw(withdrawalAmount, transactionDate);
+            _atm.Withdraw(withdrawalAmount, transactionDate);
         }
         
         [When(@"the client prints their statement")]
         public void WhenTheClientPrintsTheirStatement()
         {
-            atmOutput = atm.PrintStatement();
+            atmOutput = _atm.PrintStatement();
         }
         
         [Then(@"they would see the expected statement")]

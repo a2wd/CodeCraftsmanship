@@ -7,5 +7,6 @@
     {
         void AddTransaction(ITransaction transaction);
         IEnumerable<ITransaction> GetTransactions();
+        decimal GetBalance();
     }
 }

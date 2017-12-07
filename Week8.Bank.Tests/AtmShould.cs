@@ -6,6 +6,7 @@
     using Atm;
     using Moq;
     using NUnit.Framework;
+    using NUnit.Framework.Internal.Commands;
     using Printer;
     using Transaction;
 
@@ -13,20 +14,22 @@
     {
         private Mock<IAccount> _accountMock;
         private Mock<IPrinter> _printerMock;
+        private Atm _atmInstance;
 
         [SetUp]
         public void Setup()
         {
             _printerMock = new Mock<IPrinter>();
             _accountMock = new Mock<IAccount>();
+
+            _atmInstance = new Atm(_accountMock.Object, _printerMock.Object);
         }
 
         [Test]
         public void RequireAnAccountAndAPrinterToBeInstantiated()
         {
-            var atmInstance = new Atm(_accountMock.Object, _printerMock.Object);
 
-            Assert.That(atmInstance, Is.Not.Null);
+            Assert.That(_atmInstance, Is.Not.Null);
         }
 
         [Test]
@@ -34,16 +37,39 @@
         {
             var transactions = new List<ITransaction>
             {
-                new CreditTransaction(0m, DateTime.Now, 0m)
+                new Transaction(0m, DateTime.Now, 0m)
             };
 
             _accountMock.Setup(account => account.GetTransactions()).Returns(transactions);
 
-            var atmInstance = new Atm(_accountMock.Object, _printerMock.Object);
-
-            atmInstance.PrintStatement();
+            _atmInstance.PrintStatement();
             
             _printerMock.Verify(printerMock => printerMock.PrintStatement(transactions));
+        }
+
+        [Test]
+        public void AllowTransactionToBeAddedToAccount()
+        {
+            var creditTransaction = new Transaction(0m, DateTime.Now, 0m);
+            
+            _atmInstance.AddTransactionToAccount(creditTransaction);
+
+            _accountMock.Verify(account => account.AddTransaction(creditTransaction));
+        }
+
+        [Test]
+        public void KeepARunningTotalOfTheBalanceWhenDepositingMoneyInAnAccount()
+        {
+            var creditAmount = 55.25m;
+
+            decimal newBalance = 0m;
+
+            _accountMock.Setup(account => account.AddTransaction(It.IsAny<ITransaction>()))
+                .Callback<ITransaction>(transaction => newBalance = transaction.GetBalance());
+
+            _atmInstance.MakeADeposit(creditAmount);
+
+            Assert.That(newBalance, Is.EqualTo(creditAmount));
         }
     }
 }

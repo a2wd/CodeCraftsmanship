@@ -5,6 +5,6 @@
 
     public interface IPrinter
     {
-        string PrintStatement(IEnumerable<ITransaction> account);
+        string PrintStatement(IEnumerable<ITransaction> transactions);
     }
 }

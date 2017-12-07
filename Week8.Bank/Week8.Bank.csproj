@@ -42,11 +42,11 @@
   <ItemGroup>
     <Compile Include="Account\IAccount.cs" />
     <Compile Include="Atm\Atm.cs" />
+    <Compile Include="Atm\IAtm.cs" />
     <Compile Include="Printer\IPrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction\DebitTransaction.cs" />
+    <Compile Include="Transaction\Transaction.cs" />
     <Compile Include="Transaction\ITransaction.cs" />
-    <Compile Include="Transaction\CreditTransaction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
