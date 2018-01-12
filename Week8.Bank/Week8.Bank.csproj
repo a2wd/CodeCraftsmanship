@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Account.cs" />
     <Compile Include="Account\IAccount.cs" />
     <Compile Include="Atm\Atm.cs" />
     <Compile Include="Atm\IAtm.cs" />
