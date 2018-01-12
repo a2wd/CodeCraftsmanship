@@ -32,7 +32,7 @@
         {
             var newBalance = GetBalance() + creditAmount;
 
-            _account.AddTransaction(new Transaction(creditAmount,DateTime.UtcNow, newBalance));
+            _account.AddTransaction(new Transaction(creditAmount, DateTime.UtcNow, newBalance));
         }
 
         public decimal GetBalance()
@@ -40,6 +40,13 @@
             var latestTransaction = _account.GetTransactions().OrderBy(transaction => transaction.GetDate()).Last();
 
             return latestTransaction.GetBalance();
+        }
+
+        public void MakeAWithdrawal(decimal debitAmount)
+        {
+            var newBalance = GetBalance() - debitAmount;
+
+            _account.AddTransaction(new Transaction(-debitAmount, DateTime.UtcNow, newBalance));
         }
     }
 }

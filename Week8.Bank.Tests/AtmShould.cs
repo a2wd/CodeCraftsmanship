@@ -14,6 +14,8 @@
     {
         private Mock<IAccount> _accountMock;
         private Mock<IPrinter> _printerMock;
+
+        private List<ITransaction> transactions;
         private Atm _atmInstance;
 
         [SetUp]
@@ -23,6 +25,14 @@
             _accountMock = new Mock<IAccount>();
 
             _atmInstance = new Atm(_accountMock.Object, _printerMock.Object);
+
+            var transactions = new List<ITransaction>
+            {
+                new Transaction(0m, DateTime.Now, 0m)
+            };
+
+            _accountMock.Setup(account => account.GetTransactions()).Returns(transactions);
+
         }
 
         [Test]
@@ -35,11 +45,7 @@
         [Test]
         public void PassTransactionDetailsFromAnAccountToThePrinter()
         {
-            var transactions = new List<ITransaction>
-            {
-                new Transaction(0m, DateTime.Now, 0m)
-            };
-
+            
             _accountMock.Setup(account => account.GetTransactions()).Returns(transactions);
 
             _atmInstance.PrintStatement();
@@ -63,13 +69,29 @@
             var creditAmount = 55.25m;
 
             decimal newBalance = 0m;
-
+            
             _accountMock.Setup(account => account.AddTransaction(It.IsAny<ITransaction>()))
                 .Callback<ITransaction>(transaction => newBalance = transaction.GetBalance());
-
+            
             _atmInstance.MakeADeposit(creditAmount);
 
             Assert.That(newBalance, Is.EqualTo(creditAmount));
         }
+
+        [Test]
+        public void KeepARunningTotalOfTheBalanceWhenWithdrawingMoneyInAnAccount()
+        {
+            var debitAmount = 10m;
+
+            decimal newBalance = 0m;
+
+            _accountMock.Setup(account => account.AddTransaction(It.IsAny<ITransaction>()))
+                .Callback<ITransaction>(transaction => newBalance = transaction.GetBalance());
+
+            _atmInstance.MakeAWithdrawal(debitAmount);
+
+            Assert.That(newBalance, Is.EqualTo(-debitAmount));
+        }
+
     }
 }
